@@ -38,7 +38,7 @@ def generate_launch_description():
         executable='rt_usb_9axisimu_driver',
         name='rt_usb_9axisimu',
         parameters=[{
-            'port': '/dev/ttyACM1'
+            'port': '/dev/ttyACM0'
         }]
     )
     imu_inactive_to_active = RegisterEventHandler(
