@@ -72,11 +72,19 @@ def generate_launch_description():
         }]
     )
 
+    tf_static_transform_publisher_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='broadcaster',
+        arguments=['0', '0', '0', '0', '3.14', '0', 'base_link', 'odom'],
+    )
+
     ld = LaunchDescription()
     ld.add_action(imu_inactive_to_active)
     ld.add_action(imu_node)
     ld.add_action(imu_configure)
     ld.add_action(imu_complementary_filter_node)
+    ld.add_action(tf_static_transform_publisher_node)
     ld.add_action(rviz_node)
     ld.add_action(rqt_gui_node)
 
